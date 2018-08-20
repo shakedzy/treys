@@ -164,20 +164,19 @@ class Card:
         return "".join(output)
 
     @staticmethod
-    def int_to_pretty_str(card_int, no_color=False):
+    def int_to_pretty_str(card_int):
         """
         Prints a single card 
         """
         
         color = False
-        if not no_color:
-            try:
-                from termcolor import colored
-                # for mac, linux: http://pypi.python.org/pypi/termcolor
-                # can use for windows: http://pypi.python.org/pypi/colorama
-                color = True
-            except ImportError:
-                pass
+        try:
+            from termcolor import colored
+            # for mac, linux: http://pypi.python.org/pypi/termcolor
+            # can use for windows: http://pypi.python.org/pypi/colorama
+            color = True
+        except ImportError:
+            pass
 
         # suit and rank
         suit_int = Card.get_suit_int(card_int)
